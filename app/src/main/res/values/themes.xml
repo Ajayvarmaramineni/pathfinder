@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Pathfinder" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/wpi_red</item>
+        <item name="android:colorPrimaryDark">@color/wpi_red_dark</item>
+        <item name="android:colorAccent">@color/wpi_red</item>
+        <item name="android:buttonStyle">@android:style/Widget.Material.Button.Colored</item>
+    </style>
+
+    <!-- Home menu buttons; each one calls MainActivity.open() -->
+    <style name="MenuButton" parent="android:Widget.Material.Button.Colored">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:onClick">open</item>
+    </style>
+
+</resources>

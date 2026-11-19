@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WPI Pathfinder</string>
+
+    <string name="programs">Programs</string>
+    <string name="courses">Courses by Subject</string>
+    <string name="faculty">Faculty</string>
+    <string name="offices">Offices &amp; Resources</string>
+    <string name="buildings">Campus Buildings</string>
+    <string name="housing_dining">Housing &amp; Dining</string>
+    <string name="project_centers">Project Centers</string>
+    <string name="research_centers">Research Centers</string>
+    <string name="search">Search</string>
+    <string name="reports">Reports</string>
+    <string name="coming_soon">Coming soon</string>
+
+    <string name="show_result">Show Result</string>
+    <string name="course_code_hint">Course code, e.g. MIS 571</string>
+    <string name="row_count">Rows: %d</string>
+
+    <!-- Same order as QUERIES in ReportsActivity -->
+    <string-array name="reports">
+        <item>Programs per school by degree type</item>
+        <item>Building of each department and office</item>
+        <item>Project centers per region</item>
+        <item>Dining spots and their buildings</item>
+        <item>Programs that include a course</item>
+    </string-array>
+</resources>
