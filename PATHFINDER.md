@@ -411,18 +411,46 @@ database, and all five reports return the counts above.
 | Project Centers by term or region → Directors | Q9–Q12 |
 | Research Centers | Q14 |
 | Search | Q15 (keyword EditText) |
-| Reports | Spinner of queries + TableView (Q2, Q3, Q7); charts for Q3 and Q13 |
+| Reports | Spinner of queries + TableView (Q2, Q3, Q7, Q13, Q17); charts for Q3 and Q13 |
 
 **Rubric 2.3 extras:** DatePicker input (maintenance form and Q19), bar charts, ListView drill-down, keyword search
-across 7 tables, building "what's inside" view.
+across 8 tables, building "what's inside" view.
 
 **Chart library:** MPAndroidChart 3.1.0 is the default. It is in the professor's Tutorial 7 materials and can be added
 through Gradle (JitPack), so it doesn't depend on the course zip. The fallback is AChartEngine 1.2.0, exactly as in the
 Tutorial 7/8 `ChartGenerator` code, but that jar exists only in the course zip and must be kept aside to use it.
 
+**Work split.** Everyone builds their screens plain first (TableView or a simple ListView); the UI pass comes last.
+
+| Person | Screens | Queries | Home buttons |
+|---|---|---|---|
+| 1 | Foundation and Reports (done); splash, home restyle and the shared list row in the UI pass | Q2, Q3, Q7, Q13, Q17 | `reports_btn` |
+| 2 | Programs → Requirements, Courses by Subject, Course detail, Faculty | Q1, Q4, Q5, Q8, Q20 | `programs_btn`, `courses_btn`, `faculty_btn` |
+| 3 | Offices & Resources, Campus Buildings, Housing & Dining, dining add/edit/delete form | Q6, Q7, Q16–Q19, dining SQL | `offices_btn`, `buildings_btn`, `housing_dining_btn` |
+| 4 | Project Centers → Directors, Research Centers, Search, bar charts for Q3 and Q13 | Q9–Q15, Q3, Q13 | `project_centers_btn`, `research_centers_btn`, `search_btn` |
+
+A list query that a Spinner needs (departments, programs, regions, terms...) goes in `SQLCommand` right under the
+query that uses it, so two people's additions never land on the same lines.
+
+**UI design (locked 2026-11-19, done last).** The Milestone mockups, limited to what the data supports and to plain
+Android (the chart library is the only one we add):
+- Splash: WPI red with the logo, set in the theme (needs the logo image file).
+- Home: red header with the app name, a search bar that opens Search, a 3-column grid of icon tiles (icons from
+  File → New → Vector Asset), and Housing & Dining as a wide row.
+- Lists: one shared row layout (bold title, grey subtitle, arrow) made by Person 1 and used by every list screen.
+- Filters (Undergraduate / Graduate, result type, department): a row of red toggle buttons or a Spinner.
+- Search results: a type label and icon on each row, from Q15's `type` column.
+- Course detail: code, title, credits, level, description, prerequisites and other codes.
+- Campus buildings: Directions opens the phone's maps app with the address; More Info opens `website_url`.
+- Left out: photos (none in the data), an in-app map (no coordinates; needs an API key and internet), topic tags (no
+  data), the chatbot, clubs, scholarships, the bottom navigation bar and Material chips.
+- Report screenshots are taken after the UI pass.
+
+**Schedule:** every screen works and is merged by Nov 28; UI pass Nov 29–Dec 1; testing, screenshots, report and slides
+Dec 1–6; submit Monday Dec 7.
+
 **Still to decide:**
 - Whether the maintenance screens sit behind a simple admin PIN (an open question from the project plan).
-- Who builds which screens.
 
 ---
 
